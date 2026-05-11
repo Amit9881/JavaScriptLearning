@@ -106,47 +106,141 @@ Shift + Altr + A */
 var v = "amit";
 let age = 29;
 const gender = "Male";
+
+var name = "amit";//decleartion
+var name = "surya"; //redecleartion
+name = "ben";//reassignment 
+
+var name = ["A", "B", "C"];
+for (var i = 0; i < name.length; i++) {
+    console.log(name[i]);
+}
+
+console.log(name[i]);
+
+function say() {
+    console.log("we can do it");
+}
+
+say();
 ```
-Demonstrates `var`, `let`, and `const` declarations, redeclaration, reassignment, and scope.
 
 ### 10_function.js
 ```js
 function number() {
     console.log("numbering");
 }
+//function is block of code , we use for code reusablity
+//write once & use many times
+
+
+number();
+number();
 ```
-Basic function definition and reuse.
 
 ### 11_var.js
 ```js
-var name = "amit";
+var name = "amit";//global scope
+console.log(name);
+
+function myName() {
+    console.log("My name is " + name);
+    var name = "surya";
+    console.log("My name is " + name);
+    if (true) {
+        console.log("my name is " + name)
+        var name = "ben";
+        console.log(name);
+    }
+}
+
+myName();
+
+var name = "john";
+console.log(name);
 ```
-Explores `var`'s global/function scope and redeclaration behavior.
 
 ### 12_let.js
 ```js
 let age = 29;
+console.log(age);
+
+/*let age = 30;
+console.log(age);
+SyntaxError : Identifier "age" has already been declared
+*/
+
+let trycount = 0;
+console.log(trycount);
+trycount = trycount + 1;
+console.log(trycount);
+trycount = trycount + 1;
+console.log(trycount);
+
+
+if (true) {
+    console.log("True");
+    let join = "yes";
+}
+
+//console.log(join);
+//ReferenceError: join is not defined
 ```
-Demonstrates `let` — block scoping, no redeclaration, but allows reassignment.
 
 ### 13_const.js
 ```js
 const gender = "Male";
+console.log(gender);
+//const gender = "female";
+//SyntaxError: Identifier 'gender' has already been declared
+
+//gender = "NA";
+//TypeError: Assignment to constant variable.
+
+function maleOrFemale() {
+    console.log(gender);
+    //const gender = "female";
+    //console.log(gender);
+    //ReferenceError: Cannot access 'gender' before initialization
+    //gender = "female";
+    //console.log(gender);
+    //TypeError: Assignment to constant variable.
+
+}
+
+maleOrFemale();
 ```
-Shows `const` — block scoped, cannot be redeclared or reassigned.
 
 ### 14_hoisting.js
 ```js
-console.log(brave); // undefined
+console.log(brave);// undefined
 var brave = "yes";
+console.log(brave);
+
+//console.log(petName);
+//ReferenceError: Cannot access 'petName' before initialization
+let petName = "Dog";
+console.log(petName);
+
+//console.log(cat);
+//ReferenceError: Cannot access 'cat' before initialization
+const cat = "maggie";
+console.log(cat);
 ```
-Compares hoisting behavior of `var` (hoisted as `undefined`) vs `let`/`const` (Temporal Dead Zone).
 
 ### 15_functionHoisting.js
 ```js
 function isPossible() {
-    console.log(game); // undefined
+    console.log(game);//undefined
     var game = "mario";
+    console.log(game);
+    //console.log(game1);
+    //ReferenceError: Cannot access 'cat' before initialization
+    let game1 = "WWE";
+    console.log(game1);
+    game1 = "football";
+    console.log(game1);
 }
+
+isPossible();
 ```
-Hoisting inside a function — `var` hoisted within function scope, `let`/`const` in TDZ.
