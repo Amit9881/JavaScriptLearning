@@ -1,6 +1,9 @@
 //console.log(name);
 //ReferenceError: Cannot access 'name' before initialization
 let name = "amit";
+let age = 30;//TDZ
+let yes = true;//TDZ
+let isMature = false;//TDZ
 console.log(name);
 
 function say() {
