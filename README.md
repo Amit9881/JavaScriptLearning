@@ -244,3 +244,89 @@ function isPossible() {
 
 isPossible();
 ```
+
+## Chapter 05 — Hoisting & Data Types
+
+### 16_hoisting_var.js
+```js
+console.log(age);//undefined
+console.log("my self amit");
+
+var age = 30;
+console.log(age);
+
+
+function say() {
+    console.log(name);
+    var name = "Amit";
+    console.log(name);
+}
+
+say();
+```
+
+### 17_hoisting_let.js
+```js
+//console.log(name);
+//ReferenceError: Cannot access 'name' before initialization
+let name = "amit";
+let age = 30;//TDZ
+let yes = true;//TDZ
+let isMature = false;//TDZ
+console.log(name);
+
+function say() {
+    console.log(name);//amit
+    //let name = "surya";
+    //console.log(name);
+
+}
+say();
+function say1() {
+    //console.log(name);
+    //ReferenceError: Cannot access 'name' before initialization
+    let name = "surya";
+}
+say1();
+```
+
+### 18_hoisting_const.js
+```js
+//console.log(name);
+//ReferenceError: Cannot access 'name' before initialization
+const name = "amit";
+const age = 28;//TDZ
+const study = true;//TDZ
+const gneder = "Male";//TDZ
+console.log(name);
+
+function say() {
+    console.log(name);//amit
+
+}
+say();
+
+function say1() {
+    console.log(name);
+    //ReferenceError: Cannot access 'name' before initialization
+    const name = "surya";
+}
+
+say1();
+```
+
+### 19_literals.js
+```js
+var name = "amit";
+let age = 30;
+const isMale = true;
+
+var number = 99.99999999;
+let get = ["A", "B"];
+
+console.log(typeof (name));
+console.log(typeof (age));
+console.log(typeof (isMale));
+console.log(typeof (number));
+console.log(typeof (get));
+```
