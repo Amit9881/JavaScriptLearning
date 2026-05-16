@@ -330,3 +330,64 @@ console.log(typeof (isMale));
 console.log(typeof (number));
 console.log(typeof (get));
 ```
+
+## Chapter 06 — Operators
+
+### 23_assignment_operator.js
+```js
+let name = "Amit";
+let age = 30;
+```
+
+### 24_arthimetic.js
+```js
+let a = 20;
+let b = 5;
+let sum = a + b;
+```
+
+### 25_modules.js
+```js
+console.log(100 % 50);
+```
+
+### 26_expoenational.js
+```js
+console.log(2 ** 3);
+```
+
+### 27_compound.js
+```js
+let a = 10;
+a += 10;
+```
+
+### 28_comaprsion.js
+```js
+console.log(20 > 30);
+```
+
+### 29_strict_loose_comparison.js
+```js
+// === vs ==
+```
+
+### 30_IQ_loose_strict.js
+```js
+// Interview questions on == vs ===
+```
+
+### 31_confusion_comparison.js
+```js
+// Confusing comparisons in JS
+```
+
+### 32_logical.js
+```js
+// &&, ||, !
+```
+
+### 33_string_concatination.js
+```js
+console.log(`${name}` + `${lastName}`);
+```
