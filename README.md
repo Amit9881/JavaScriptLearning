@@ -333,19 +333,46 @@ console.log(typeof (get));
 
 ### 20_null_undefined.js
 ```js
-let name; // undefined
+let name;//declaration
+console.log(name);//undefined
+
 let age = null;
+console.log(age);//null
+
+var stay;
+console.log(stay);//undefined
+console.log(typeof (stay));//undefined
+var stay1 = null;
+console.log(stay1);//null
+console.log(typeof (stay1));//object
 ```
 
 ### 21_string.js
 ```js
 let name = "Amit";
+console.log(name);
+console.log(typeof (name));
+
 let age = "30";
+console.log(age);
+console.log(typeof (age));
+
+var alpha = 'A';
+console.log(alpha);
+console.log(typeof (alpha));
 ```
 
 ### 22_template_literals.js
 ```js
+let name = "Amit";
 let intro = `Hi ${name} here`;
+console.log(intro);
+
+let userName = "Amit@223";
+let key = "43";
+let bod = "5596";
+let check = `user name of ${key} is ${userName} and bod is ${bod}`;
+console.log(check);
 ```
 
 ## Chapter 06 — Operators
@@ -354,57 +381,155 @@ let intro = `Hi ${name} here`;
 ```js
 let name = "Amit";
 let age = 30;
+let key = "AGH";
+
+console.log(name);
+console.log(age);
+console.log(key);
 ```
 
 ### 24_arthimetic.js
 ```js
 let a = 20;
 let b = 5;
+
 let sum = a + b;
+console.log(sum);
+
+let sub = a - b;
+console.log(sub);
+
+let mul = a * b;
+console.log(mul);
+
+let div = a / b;
+console.log(div);
 ```
 
 ### 25_modules.js
 ```js
-console.log(100 % 50);
+let a = 100;
+let b = 50;
+let c = 3;
+
+console.log(a % b);
+console.log(a % c);
+console.log(b % c);
 ```
 
 ### 26_expoenational.js
 ```js
-console.log(2 ** 3);
+let a = 2;
+let b = 3;
+
+console.log(a ** b);
+console.log(b ** a);
+console.log(a ** a);
+console.log(b ** b);
 ```
 
 ### 27_compound.js
 ```js
 let a = 10;
-a += 10;
+a += 10;// a+10
+console.log(a);
+
+a -= 3;// a-3
+console.log(a);
+
+a *= 10;// a * 10
+console.log(a);
+
+a /= 17; //a /17;
+console.log(a);
 ```
 
 ### 28_comaprsion.js
 ```js
-console.log(20 > 30);
+let a = 20;
+let b = 30;
+
+console.log(a > b);
+console.log(a < b);
+console.log(a == b);
+console.log(a === b);
+console.log(a <= b);
+console.log(a >= b);
 ```
 
 ### 29_strict_loose_comparison.js
 ```js
-// === vs ==
+let a = 20;
+let b = 30;
+let c = "20";
+let d = 30;
+
+console.log(a == b);//false
+console.log(b == c);//false
+console.log(a == c);//true
+console.log(b == d);//true
+console.log("***************************");
+console.log(a === b);//false
+console.log(b === c);//false
+console.log(a === c);//false
+console.log(b === d);//true
 ```
 
 ### 30_IQ_loose_strict.js
 ```js
-// Interview questions on == vs ===
+console.log(0 == "0");//true
+console.log(0 === "0");//false
+console.log(0 == null);//false
+console.log(0 === null);//false
+console.log(0 == "");//true
+console.log(null == undefined);//true
+console.log(null === undefined);//false
 ```
 
 ### 31_confusion_comparison.js
 ```js
-// Confusing comparisons in JS
+// ==  → loose equality (type coercion, surprising)
+// === → strict equality (no coercion, what you usually want)
+
+console.log("" == 0);        // true
+console.log("0" == 0);       // true
+console.log("" === 0);       // false
+console.log("0" === 0);      // false
+
+console.log(null == undefined);   // true
+console.log(null === undefined);  // false
+console.log(null >= 0);           // true  (gotcha!)
+console.log(null == 0);           // false
+
+console.log(true == 1);      // true
+console.log(true === 1);     // false
+console.log(NaN == NaN);     // false
+
+console.log([] == false);    // true
+console.log([] == ![]);      // true
 ```
 
 ### 32_logical.js
 ```js
-// &&, ||, !
+let a = 10;
+let b = 20;
+let c = 30;
+
+if (a > b && b < c) {
+    console.log("true");
+}
+else if (a < b || a > c) {
+    console.log("false");
+}
 ```
 
 ### 33_string_concatination.js
 ```js
+let name = "Amit";
+let lastName = "Suryawanshi";
+
 console.log(`${name}` + `${lastName}`);
+
+name += "Surya";
+console.log(name);
 ```
