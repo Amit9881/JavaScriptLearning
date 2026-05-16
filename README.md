@@ -331,6 +331,23 @@ console.log(typeof (number));
 console.log(typeof (get));
 ```
 
+### 20_null_undefined.js
+```js
+let name; // undefined
+let age = null;
+```
+
+### 21_string.js
+```js
+let name = "Amit";
+let age = "30";
+```
+
+### 22_template_literals.js
+```js
+let intro = `Hi ${name} here`;
+```
+
 ## Chapter 06 — Operators
 
 ### 23_assignment_operator.js
