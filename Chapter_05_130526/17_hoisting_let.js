@@ -14,8 +14,8 @@ function say() {
 }
 say();
 function say1() {
-    //console.log(name);
+    console.log(name);
     //ReferenceError: Cannot access 'name' before initialization
-    let name = "surya";
+    let name = "surya";// if i will comment this, JS take name == amit
 }
 say1();
