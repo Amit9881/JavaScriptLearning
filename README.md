@@ -533,3 +533,59 @@ console.log(`${name}` + `${lastName}`);
 name += "Surya";
 console.log(name);
 ```
+
+### 34_ternary_operator.js
+```js
+let age = 20;
+
+let votter = age >= 18 ? "will be votter" : "not a votter";
+
+console.log(votter);
+
+
+let inch = 10;
+
+let ft = inch > 12 ? "grater than feet" : "less than feet";
+
+console.log(ft);
+```
+
+### 35_typeOf.js
+```js
+let name = "amit";
+let age = 30;
+let isMale = true;
+let cars = null;
+let bikes = undefined;
+let toys = ["a", "b"];
+
+console.log(typeof (name));
+console.log(typeof (age));
+console.log(typeof (isMale));
+console.log(typeof (cars));
+console.log(typeof (bikes));
+console.log(typeof (toys));
+```
+
+### 36_preIncrement.js
+```js
+let a = 10;
+console.log(a);//10
+a = ++a; //a become 11
+console.log(a);//11
+let b = ++a + ++a; // 11 then a become 12 then 12 add with 13 & finally
+//a become 13
+console.log(b)//25
+console.log(a);//13
+```
+
+### 37_postIncrement.js
+```js
+let a = 10;
+console.log(a);//10
+a = a++;//1st a = 10 then a become 11
+console.log(a);//10
+let b = a++ + a++;
+console.log(b);//21
+console.log(a);//12
+```
