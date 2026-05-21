@@ -650,6 +650,65 @@ if (x = 5) console.log("true"); else console.log("false");
 // Output: "true" (assignment inside condition)
 ```
 
+### 59_taskAPIcode.js
+```js
+let statuscode = 200;
+if (statuscode <= 299) {
+    console.log("API succesful");
+} else if (statuscode <= 399) {
+    console.log("redirection requried");
+} else if (statuscode <= 499) {
+    console.log("client error");
+} else if (statuscode <= 599) {
+    console.log("server error");
+} else {
+    console.log("Invalid error");
+}
+```
+
+### 60_TC.js
+```js
+let expected = "login"
+let actual = "login";
+
+if (expected === actual) {
+    console.log("test case passed");
+} else {
+    console.log("test case failed");
+}
+```
+
+### 61.bugSeverity.js
+```js
+let bug = 5;
+
+if (bug >= 9) {
+    console.log("critical bug");
+} else if (bug >= 7) {
+    console.log("high severity bug")
+} else if (bug >= 4) {
+    console.log("Medium severity bug");
+} else if (bug >= 1) {
+    console.log("low severity bug");
+} else {
+    console.log("Invalid error");
+}
+```
+
+### 62_helathreport.js
+```js
+let healthscore = 50;
+if (healthscore === 100) {
+    console.log("green build");
+} else if (healthscore >= 90) {
+    console.log("stable");
+} else if (healthscore >= 70) {
+    console.log("Unstable");
+} else {
+    console.log("broken build");
+}
+```
+
 ## Chapter 08 — Switch Statement
 
 ### 48_switch.js
@@ -716,3 +775,21 @@ rl.question("Enter your name: ", (name) => {
 
 ### 58_prompt_sync.js
 Using the `prompt-sync` npm package for synchronous user input in Node.js.
+
+### 63_loginlogout.js
+```js
+let attempts = 2;
+switch (attempts) {
+    case 1:
+        console.log("2 attempts left");
+        break;
+    case 2:
+        console.log("1 attempts left");
+        break;
+    case 3:
+        console.log("account lock")
+        break;
+    default:
+        console.log("wrong account");
+}
+```
