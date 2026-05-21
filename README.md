@@ -589,3 +589,130 @@ let b = a++ + a++;
 console.log(b);//21
 console.log(a);//12
 ```
+
+## Chapter 07 — If/Else Conditional Logic
+
+### 38_evenodd_number.js
+```js
+function checkEvenOdd(num) {
+    if (num % 2 === 0) {
+        console.log(`${num} is even`);
+    } else {
+        console.log(`${num} is odd`);
+    }
+}
+```
+
+### 39_grade.js
+Grade calculation based on marks using if/else if chain.
+
+### 40_leapyear.js
+```js
+let year = 2024;
+if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    console.log(`${year} is a leap year`);
+} else {
+    console.log(`${year} is not a leap year`);
+}
+```
+
+### 41_If_else.js
+Basic if/else syntax examples.
+
+### 42_ifelseif.js
+```js
+if (condition1) {
+    // block1
+} else if (condition2) {
+    // block2
+} else {
+    // default block
+}
+```
+
+### 43_realifelse.js
+Real-world nested if/else — login + role-based access (admin, editor, viewer).
+
+### 44_APIIfelse.js
+API-style if/else examples.
+
+### 45_IQifelse.js
+Interview-style if/else question — swapping variables with/without third variable.
+
+### 46_realIfElse.js
+Another real-world if/else scenario (grading system).
+
+### 47_IQ.js
+```js
+// IQ: Predict output without running
+let x = 0;
+if (x = 5) console.log("true"); else console.log("false");
+// Output: "true" (assignment inside condition)
+```
+
+## Chapter 08 — Switch Statement
+
+### 48_switch.js
+```js
+let day = 3;
+switch (day) {
+    case 1: console.log("Monday"); break;
+    case 2: console.log("Tuesday"); break;
+    case 3: console.log("Wednesday"); break;
+    case 4: console.log("Thursday"); break;
+    case 5: console.log("Friday"); break;
+    case 6: console.log("Saturday"); break;
+    case 7: console.log("Sunday"); break;
+    default: console.log("Invalid day");
+}
+```
+
+### 49_noBreak.js
+Switch without break — demonstrates fall-through behavior.
+
+### 50_APIswitch.js
+Switch used in an API/action-dispatch context.
+
+### 51_SwitchGroup.js
+Grouping multiple cases together (e.g., weekdays vs weekends).
+
+### 52_IQ.js
+Interview question: switch with non-primitive expressions.
+
+### 53_IQ2.js
+Interview question: default case placement and fall-through.
+
+### 54_IQ3.js
+Interview question on switch with type coercion.
+
+### 55_IQ4.js
+Interview question on switch with complex conditions.
+
+## Chapter 09 — User Input Handling
+
+### 56_userimnput.js
+```js
+let num = prompt("Enter a number:");
+num = Number(num);
+if (num % 2 === 0) {
+    console.log("Even");
+} else {
+    console.log("Odd");
+}
+```
+
+### 57_Node_readline.js
+```js
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+rl.question("Enter your name: ", (name) => {
+    console.log(`Hello, ${name}!`);
+    rl.close();
+});
+```
+
+### 58_prompt_sync.js
+Using the `prompt-sync` npm package for synchronous user input in Node.js.
