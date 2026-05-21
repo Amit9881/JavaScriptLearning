@@ -727,25 +727,147 @@ switch (day) {
 ```
 
 ### 49_noBreak.js
+```js
+let num = 1;
+switch (num) {
+    case 1:
+        console.log("number one");
+
+    case 2:
+        console.log("number is two")
+
+    default:
+        console.log("not able to find number");
+}
+```
 Switch without break — demonstrates fall-through behavior.
 
 ### 50_APIswitch.js
+```js
+let statuscode = 500;
+switch (statuscode) {
+    case 200:
+        console.log("API is working");
+        break;
+
+    case 400:
+        console.log("API is not working");
+        break;
+
+    case 500:
+        console.log("system error");
+        break;
+
+    default:
+        console.log("Unable to find");
+
+}
+```
 Switch used in an API/action-dispatch context.
 
 ### 51_SwitchGroup.js
-Grouping multiple cases together (e.g., weekdays vs weekends).
+```js
+let browser = "IE";
+switch (browser) {
+    case "chrome":
+    case "opera":
+    case "IE":
+        console.log("chromium proj");
+        break;
+
+    case "firefox":
+        console.log("mozilla proj");
+        break;
+
+    case "Internet":
+        console.log("internet exporer");
+        break;
+
+    default:
+        console.log("Internet not connected ");
+}
+```
+Grouping multiple cases together.
 
 ### 52_IQ.js
-Interview question: switch with non-primitive expressions.
+```js
+let fruit = "Apple";
+switch (fruit) {
+    case "Apple":
+        console.log("One daily");
 
-### 53_IQ2.js
-Interview question: default case placement and fall-through.
+    case "banana":
+        console.log("daily two");
 
-### 54_IQ3.js
-Interview question on switch with type coercion.
+    case "mango":
+        console.log("sesonal");
 
-### 55_IQ4.js
-Interview question on switch with complex conditions.
+    default:
+        console.log("no fruits for the day");
+
+}
+```
+Interview question: switch fall-through without break.
+
+### 53_IQ2.js — Switch with boolean expression
+```js
+let testScore = 50;
+switch (true) {
+    case (testScore >= 90):
+        console.log("grade A");
+        break;
+
+    case (testScore >= 80):
+        console.log("Grade B");
+        break;
+
+    case (testScore >= 70):
+        console.log("grade C");
+        break;
+
+    case (testScore >= 60):
+        console.log("grade D");
+        break;
+
+    default:
+        console.log("You are failed");
+
+}
+```
+Using `switch(true)` with range conditions.
+
+### 54_IQ3.js — Duplicate case values
+```js
+let x = 10;
+switch (x) {
+    case 10:
+        let b = 1;
+        console.log(b);
+        break;
+
+    case 10:
+        let c = 3;
+        console.log(c);
+        break;
+}
+```
+Interview question: duplicate case values (only first matches).
+
+### 55_IQ4.js — Type coercion in switch
+```js
+let status = 0;
+
+switch (status) {
+    case false:
+        console.log("status code false");
+        break;
+
+    case 0:
+        console.log("status code is 0");
+        break;
+}
+```
+Interview question: switch uses strict comparison (`===`), so `false` and `0` are distinct.
 
 ## Chapter 09 — User Input Handling
 
