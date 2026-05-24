@@ -915,3 +915,159 @@ switch (attempts) {
         console.log("wrong account");
 }
 ```
+
+## Chapter 09 — Continued
+
+### 64_test.js
+```js
+let test = ["pass", "fail", "skip", "pass", "fail"];
+let passed = 0;
+let failed = 0;
+let skipped = 0;
+for (let i = 0; i < test.length; i++) {
+    if (test[i] === "pass") {
+        passed = passed + 1;
+    } else if (test[i] === "fail") {
+        failed = failed + 1;
+    } else if (test[i] === "skip") {
+        skipped = skipped + 1;
+    } else {
+        console.log("not found")
+    }
+}
+console.log("passed = " + passed + "failed =" + failed + "skipped =" + skipped);
+```
+Counting test results (pass/fail/skip) using a for loop.
+
+### 65_test_APIcall.js
+```js
+let retry = "fail";
+let max_attempts = 1;
+do {
+    retry === "fail";
+    max_attempts++;
+} while (max_attempts <= 5) {
+    console.log(retry);
+}
+```
+API retry logic using do-while loop.
+
+## Chapter 10 — Loops (For, While, Do-While)
+
+### 66_for_loop.js
+```js
+console.log("A");
+console.log("B");
+//to reduce repetaed task we use for loop
+```
+Introduction to loops — motivation to use for loops for repetitive tasks.
+
+### 67_forLoop.js
+```js
+for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}
+```
+Basic for loop printing 1 to 5.
+
+### 68_forLoops.js
+```js
+for (let i = 1; i < 5; i++) {
+    console.log(i);
+}
+//4 times loop runs
+console.log("*****************");
+for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}
+//5 times loop runs
+```
+Comparison of `<` vs `<=` in for loop conditions.
+
+### 69_IQ.js
+For loop interview questions — infinite loops, condition checks, and nested logic.
+
+### 70_while.js
+```js
+while (i < 3) {
+    console.log(i);
+    i++;
+}
+```
+Basic while loop (variable not initialized — assumes global).
+
+### 71.while.js
+```js
+let i = 0;
+while (i < 3) {
+    console.log(i);
+    i++;
+}
+```
+While loop with proper initialization.
+
+### 72_do_while.js
+```js
+let a = 5;
+do {
+    console.log(a);
+    a++;
+} while (a < 10);
+```
+Do-while loop printing 5 to 9.
+
+### 73_dowhile.js
+```js
+let retry = 0;
+do {
+    console.log("code executed");
+    console.log("retrying...." + retry);
+    retry++;
+} while (retry <= 3);
+```
+Do-while loop used for retry logic.
+
+### 74_IQ.js
+```js
+let i = 5;
+while (i > 1) {
+    console.log(i);
+    i--;
+}
+```
+While loop counting down from 5 to 2.
+
+### 75_IQ.js
+```js
+let i = 0;
+do {
+    console.log(i);
+    i--;
+} while (i > 0);
+//0
+```
+Do-while with decrement — executes once before condition check.
+
+### 76_continou.js
+```js
+for (let i = 0; i < 5; i++) {
+    if (i === 3) {
+        continue;
+    }
+    console.log(i);
+}
+// 3 skipped
+```
+Using `continue` to skip iteration when i equals 3.
+
+### 77_IQ.js
+```js
+let count = 10;
+while (count < 5) {
+    console.log(count);
+    count++;
+}
+//condition falls so loop exited
+```
+While loop with false initial condition — body never executes.
+```
