@@ -1070,4 +1070,132 @@ while (count < 5) {
 //condition falls so loop exited
 ```
 While loop with false initial condition — body never executes.
+
+### 78_taskQ1.js — Triangle Classifier
+```js
+let side1 = 10;
+let side2 = 20;
+let side3 = 10;
+
+if (side1 === side2 && side2 === side3) {
+    console.log("these is equliateral triangle");
+} else if ((side1 === side2) || (side2 === side3) || (side1 === side3)) {
+    console.log("these is Isoceleus triangle");
+} else {
+    console.log("scalene triangle");
+}
+```
+Classifies a triangle as equilateral, isosceles, or scalene based on side lengths.
+
+### 79_fizzBuzz.js
+```js
+for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+        console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+        console.log("Fizz");
+    } else if (i % 5 === 0) {
+        console.log("Buzz");
+    } else {
+        console.log(i);
+    }
+}
+```
+Classic FizzBuzz from 1 to 100 using for loop and modulo conditions.
+
+## Chapter 11 — Arrays
+
+### 80_arrays.js
+```js
+let fruit = [];
+console.log(fruit);
+let numbers = [1, 2, 3, 4, 5];
+console.log(numbers[0]);
+let mixed = ["amit", 'A', 24, 34.60, null];
+```
+Array creation using literal syntax, indexed access, and mixed data types.
+
+### 81_arrays.js
+```js
+let arrow = [24, 45, 45];
+let math = new Array(3);
+let score = new Array(1, 2, 3);
+let test = Array.of(12, 13, 13, 14, 15);
+let change = Array.from("Hello");
+```
+Alternative array creation: constructor, `Array.of()`, and `Array.from()`.
+
+### 82_array_access.js
+```js
+let name = ["amit", "surya", "medical"];
+console.log(name[0]);   // amit
+console.log(name.at(-1)); // medical (negative index)
+name[1] = "sone";       // reassignment
+```
+Indexed access, `at()` with negative indices, and element modification.
+
+### 83_arrays_additions.js
+```js
+let names = ["amit", "surya"];
+names.push("soni");    // add to end
+names.pop();            // remove from end
+names.unshift("man");   // add to beginning
+names.shift();          // remove from beginning
+```
+Stack/queue operations: push, pop, unshift, shift.
+
+### 84_array_add.js
+```js
+let arr = [1, 23, 45, 68];
+arr.splice(2, 1);         // remove 1 element at index 2
+arr.splice(2, 0, 199);    // insert at index 2
+arr.splice(2, 5, 5999);   // replace range
+```
+`splice()` — add, remove, and replace elements in place.
+
+### 85_realExample.js — Browser Array
+```js
+let browser = ["chrome", "safari", "opera", "firefox"];
+browser.pop();
+let removed = browser.shift();
+for (let i = 0; i < browser.length; i++) {
+    if (browser[i] === "opera") console.log("opera is browser");
+}
+```
+Real-world example: managing a browser list with pop, shift, and iteration.
+
+### 86_searching.js
+```js
+let result = ["pass", "fail", "skip", "pass", "skip"];
+result.indexOf("fail");          // 1
+result.lastIndexOf("pass");      // 3
+result.includes("skip");         // true
+let nums = [10, 25, 30, 45];
+nums.find(x => x > 20);          // 25
+nums.findIndex(n => n > 20);     // 1
+nums.findLast(n => n > 20);      // 45
+```
+Array search methods: indexOf, lastIndexOf, includes, find, findIndex, findLast.
+
+### 87_array_iteration.js
+```js
+let num = [23, 46, 45, 90, 345];
+for (let i = 0; i < num.length; i++) console.log(num[i]);
+for (no of num) console.log(no);
+num.forEach((i, index) => console.log(i, index));
+for (let naav in name) console.log(naav, "=", name[naav]);
+for (let [i, naav] of name.entries()) console.log(i, naav);
+```
+Iteration techniques: for loop, for-of, forEach, for-in, and entries().
+
+### 88_transformArray.js
+```js
+let scores = [45, 82, 91, 60, 73];
+let grades = scores.map(s => s > 70 ? "Pass" : "Fail");
+let passing = scores.filter(s => s > 70);
+let total = scores.reduce((a, b) => a + b, 0);
+let nested = [[1, 2], [3, 4], [5]];
+console.log(nested.flat());
+```
+Array transformations: map, filter, reduce, and flat.
 ```
