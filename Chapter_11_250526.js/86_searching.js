@@ -1,3 +1,4 @@
+//search methods: indexOf, lastIndexOf, includes, find, findIndex, findLast
 let result = ["pass", "fail", "skip", "pass", "skip"];
 
 console.log(result.indexOf("fail"));//1

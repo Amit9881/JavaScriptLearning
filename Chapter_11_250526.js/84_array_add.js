@@ -1,3 +1,4 @@
+//splice — add, remove, and replace elements anywhere in array
 let arr = [1, 23, 45, 68];
 console.log(arr);
 //[ 1, 23, 45, 68 ]

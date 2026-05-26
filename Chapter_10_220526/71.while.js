@@ -1,3 +1,4 @@
+//while loop runs as long as condition is true
 let i = 0;
 
 while (i < 3) {

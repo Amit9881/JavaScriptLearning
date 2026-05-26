@@ -1,3 +1,4 @@
+//access array elements by index and at() with negative index
 let name = ["amit", "surya", "medical"];
 console.log(name[0]);//amit
 console.log(name[1]);//surya

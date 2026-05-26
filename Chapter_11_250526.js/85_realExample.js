@@ -1,3 +1,4 @@
+//real-world: managing browser list with array methods
 let browser = ["chrome", "safari", "opera", "firefox"];
 console.log(browser.length);//4
 

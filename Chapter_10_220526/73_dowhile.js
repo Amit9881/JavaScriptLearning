@@ -1,3 +1,4 @@
+//do-while useful for retry logic — runs at least once
 let retry = 0;
 do {
     console.log("code executed");

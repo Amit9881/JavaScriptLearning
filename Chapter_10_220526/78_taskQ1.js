@@ -1,3 +1,4 @@
+//triangle classifier based on side equality
 let side1 = 10;
 let side2 = 20;
 let side3 = 10;

@@ -1,3 +1,4 @@
+//transform arrays with map, filter, reduce, and flat
 let scores = [45, 82, 91, 60, 73];
 
 // map - transform every element, return a new arrays

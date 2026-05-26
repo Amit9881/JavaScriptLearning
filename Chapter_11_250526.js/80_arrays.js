@@ -1,3 +1,4 @@
+//arrays store multiple values in a single variable
 let fruit = [];
 console.log(fruit);
 console.log(typeof (fruit));

@@ -1,3 +1,4 @@
+//different ways to create arrays
 let arrow = [24, 45, 45];
 console.log(arrow);
 

@@ -1,3 +1,4 @@
+//different ways to iterate over arrays
 let num = [23, 46, 45, 90, 345];
 for (let i = 0; i < num.length; i++) {
     console.log(num[i]);

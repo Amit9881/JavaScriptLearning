@@ -1,3 +1,4 @@
+//push/pop (end) and unshift/shift (beginning) operations
 let names = ["amit", "surya"];
 console.log(names);
 //[ 'amit', 'surya' ]
