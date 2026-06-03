@@ -1198,4 +1198,238 @@ let nested = [[1, 2], [3, 4], [5]];
 console.log(nested.flat());
 ```
 Array transformations: map, filter, reduce, and flat.
+
+### 89_Arrays.js
+```js
+let arr = ["amit", "sury", "baya", "Amit", "AMIT"];
+arr.sort();
+console.log(arr);//[ 'AMIT', 'Amit', 'amit', 'baya', 'sury' ]
+
+let arr1 = [1, 2, 6, 3, 90, .09];
+arr1.sort();
+console.log(arr1);//[ 0.09, 1, 2, 3, 6, 90 ]
+
+let arr2 = [1, 12, 10, 2, 30, 3, 21];
+arr2.sort();
+console.log(arr2);
+
+arr2.sort((a, b) => a - b);
+console.log(arr2);
+
+arr2.sort((a, b) => b - a);
+console.log(arr2);
+```
+Array sorting — default lexicographic sort, numeric ascending/descending using compare function.
+
+### 90_Array_slicing.js
+```js
+let arr = [1, 2, 3, 4, 5, 6];
+let arr1 = arr.slice(2, 4);
+console.log(arr);//[ 1, 2, 3, 4, 5, 6 ]
+console.log(arr1);//[ 3, 4 ]
+
+let arr2 = arr.slice(4, 8);
+console.log(arr2);//[ 5, 6 ]
+
+let arr3 = arr.slice(0);
+console.log(arr3);//[ 1, 2, 3, 4, 5, 6 ]
+
+let arr4 = arr.slice(-3);
+console.log(arr4);//[ 4, 5, 6 ]
+
+let arr5 = [10, 20, 30, 40, 50];
+let s = arr5.splice(1, 2);
+console.log(arr5);//[ 10, 40, 50 ]
+console.log(s);//[ 20, 30 ]
+```
+`slice()` vs `splice()` — slice creates a new array without modifying original; splice modifies the original array.
+
+### 91_concat_array.js
+```js
+let arr = [1, 2, 4];
+let arr2 = [3, 5, 8];
+
+console.log(arr + arr2);//1,2,43,5,8
+
+console.log(arr.concat(arr2));//[ 1, 2, 4, 3, 5, 8 ]
+console.log(arr2.concat(arr));//[ 3, 5, 8, 1, 2, 4 ]
+
+let d = [...arr, ...arr2];
+console.log(d);//[ 1, 2, 4, 3, 5, 8 ]
+
+console.log(arr.join("@"));
+```
+Array concatenation using `concat()`, spread operator (`...`), and `join()`.
+
+### 92_Array_checking.js
+```js
+let arr = [1, 2, 3, 4, 5, 6];
+let arr2 = Array.isArray([1, 2, 3, 4, 5, 6]);
+console.log(arr2);//true
+
+let s = Array.isArray(["a"]);
+console.log(s);//true
+
+let d = Array.isArray(1);
+console.log(d);//false
+
+console.log([80, 90, 85].every(s => s >= 70));//true
+console.log(arr.every(s => s <= 7));//true
+
+[200, 201, 203].every(statuscode => statuscode > 200);
+
+[80, 60, 85].some(s => s < 70); // true
+[80, 90, 85].some(s => s < 70); // false
+```
+Array checking with `Array.isArray()`, `every()`, and `some()` — includes Playwright API status code example.
+
+## Chapter 12 — Functions
+
+### 93_functionWithPara.js
+```js
+function sum(a, b) {
+    console.log(a + b);
+}
+sum(3, 4);//7
+sum(45, 67);//112
+```
+Function with parameters — passing arguments to a function.
+
+### 94_funWithTemplateLitreal.js
+```js
+function name(name) {
+    return `Hi ${name}`;
+};
+
+let n = name("Amit");
+console.log(n);
+//Hi Amit
+```
+Function using template literals for string interpolation.
+
+### 95_funExp.js
+```js
+const r = function (name) {
+    return `Hi ${name}`;
+};
+
+let r1 = r("Amit");
+console.log(r1);//Hi Amit
+
+function age(age) {
+    return `age is ${age}`;
+};
+let s = age(27);
+console.log(s);//age is 27
+
+const name1 = function (name2) {
+    return `Hi ${name2}`;
+};
+console.log(name1("surya"));
+```
+Function expression vs normal function declaration.
+
+### 96_Arrow_fun.js
+```js
+function greet(name) {
+    return `Hi ${name}`;
+};
+let r = greet("AMit");
+console.log(r);//Hi AMit
+
+const r2 = (name2) => "Hi " + name2;
+let r3 = r2("Surya");
+console.log(r3);//Hi Surya
+
+const doubleNo = n => n * 2;
+console.log(doubleNo(5));//10
+
+const age = Age => console.log(`my Age is ${Age}`);
+age(27);//my Age is 27
+
+function add(a, b) {
+    return a + b;
+};
+let a = add(3, 4);
+console.log(a);//7
+
+const add2 = (a, b) => console.log(a + b);
+add2(4, 5);//9
+
+function say() {
+    console.log("Hi");
+};
+console.log(say());//Undefined
+
+const say1 = () => console.log("Hi Amit");
+const say2 = () => 'Hi';
+
+let t1 = say1();//Hi Amit
+console.log(t1);//undefined
+
+const t = (name) => {
+    const m = "Hi " + name;
+    return m;
+};
+let y = t("John");
+console.log(y);//Hi John
+```
+Arrow functions — concise syntax, implicit return, single param vs multiple params, block body vs expression body.
+
+### 97_fun_basics.js
+```js
+function name() {
+    console.log("Hi");
+};
+
+name();//Hi
+```
+Function basics — definition and calling.
+
+### 98_Type1_basic.js
+```js
+function name() {
+    console.log("Hi Man");
+};
+name();//Hi Man
+
+let a = name();//Hi Man
+//console.log(a);//undefined
+```
+Basic function — function without return stores `undefined` in variable.
+
+### 99_funWithPara.js
+```js
+function greet(name) {
+    console.log("Hi " + name);
+};
+
+greet("Amit");//Hi Amit
+greet();//Hi Undefined
+
+let r = greet("Surya");//Hi surya
+console.log(r);//undefined
+
+function age(a) {
+    console.log("My Age is " + a);
+};
+
+age(27);//My Age is 27
+age();//My Age is undefined
+let b = age(28);//My Age is 28
+console.log(b);//undefined
+```
+Function with parameter — calling without argument gives `undefined`.
+
+### 100_funWithoutParamReturn.js
+```js
+function name() {
+    console.log("My name");
+    return "join";
+};
+
+let r = name();//My name
+console.log(r);//join
+```
+Function without parameters but with a return value.
 ```
