@@ -1283,7 +1283,7 @@ console.log(arr.every(s => s <= 7));//true
 ```
 Array checking with `Array.isArray()`, `every()`, and `some()` — includes Playwright API status code example.
 
-## Chapter 12 — Functions
+## Chapter 12 — Functions (Chapter_12_270526/)
 
 ### 93_functionWithPara.js
 ```js
@@ -1432,4 +1432,268 @@ let r = name();//My name
 console.log(r);//join
 ```
 Function without parameters but with a return value.
+
+### 101_Arrowfun_real.js
+```js
+//check the API statusCode
+
+function api(code) {
+    if (code >= 200 && code <= 300) {
+        console.log("API is fine");
+    };
+};
+api(202);
+
+const code = function (api) {
+    if (api >= 200 && api <= 300) {
+        console.log("api is Fine");
+    };
+};
+code(204);
+
+const api1 = (status) => {
+    if (status >= 200 && status <= 300) {
+        console.log("API IS FINE");
+    };
+};
+api1(250);
+```
+Real-world arrow function example — checking API status codes. Also shows normal function and function expression for comparison.
+
+### 102_IIFE.js
+```js
+(function () {
+    console.log("HI");
+})();
+
+(function () {
+    console.log("Playwright tests");
+})();
+
+(() => {
+    console.log("arrow ");
+})();
+```
+IIFE (Immediately Invoked Function Expression) — function runs as soon as it's defined. Includes arrow function variant.
+
+### 103_default_para.js
+```js
+function retry(testcase, maxtry = 3, delay = 1000) {
+    console.log(`${testcase},${maxtry},${delay}`);
+};
+
+retry("testD");
+retry("testF", 5, 1500);
+```
+Default parameters — `maxtry` and `delay` fall back to defaults if not provided.
+
+### 104_IQ.js
+```js
+function run(name, status, time) {
+    return `${name},${status},${time}`;
+};
+
+let r = run("TC", "pass", 1000);
+console.log(r);
+```
+Function returning a formatted string — basic TC run output.
+
+### 105_rest_param.js
+```js
+function retry(name, ...result) {
+    console.log(name);
+    console.log(result);
+};
+retry("TC", 1, 2, 3, 4);
+//TC
+//[ 1, 2, 3, 4 ]
+
+retry("TC1", "amit", "surya", "baby");
+//TC1
+//[ 'amit', 'surya', 'baby' ]
+```
+Rest parameters (`...result`) collect remaining arguments into an array.
+
+### 106_IQ.js
+```js
+function statusCode(code) {
+    if (code >= 200 && code < 300) return "success";
+    if (code >= 400 && code < 500) return "error";
+    if (code > 500) return "System error";
+};
+console.log(statusCode(200));
+
+function Test(name) {
+    console.log(`Running : ${name}`);
+};
+
+let TC = Test("TC1");
+console.log(TC);//undefined — no return
+
+greet("Amit");//Hoisting works
+
+function greet(name) {
+    console.log(`Hi ${name}`);
+};
+
+console.log(meet("surya"));//Works
+
+function meet(name) {
+    return `Hi ${name}`;
+};
+```
+Interview questions — function hoisting, return vs no return (undefined), and early return pattern.
+
+### 107_speed.js
+```js
+function add(a, b, c) {
+    return a + b + c;
+};
+
+let num = [1, 2, 3];
+console.log(add(...num));//6
+
+let response = [200, 201, 402];
+
+function statuscode(...code) {
+    return code.some(c => c >= 400);
+};
+console.log(statuscode(...response));//true
+```
+Spread operator (`...`) to unpack arrays into function arguments.
+
+### 108_scope_fun.js
+```js
+let env = "statging";
+
+function config() {
+    let env1 = "Testing";
+    console.log(env1);
+    console.log(env);
+};
+
+config();
+console.log(env);
+console.log(env1);//ReferenceError
+```
+Global vs local scope — variables declared inside a function are not accessible outside.
+
+### 109_IQ.js
+```js
+let x1 = 67;
+
+function num() {
+    let x2 = 12;
+    console.log(x2);
+
+    function numInner() {
+        let y = 24;
+        console.log(x2);
+    };
+    num();
+    console.log(y);//ReferenceError
+};
+```
+Nested function scope — inner functions can access outer variables, but not vice versa.
+
+### 110_closure.js
+```js
+function outer() {
+    let msg = "hello";
+    console.log("outer call");
+    function inner() {
+        console.log(msg);
+    };
+    return inner;
+};
+
+let call = outer();
+call();
+```
+Basic closure — inner function retains access to outer function's variables even after the outer function returns.
+
+### 111_closure.js
+```js
+function counter(start = 0) {
+    let count = start;
+    return {
+        increment() { count++ },
+        decrement() { count-- },
+        get() { return count }
+    };
+};
+
+let mark = counter(0);
+mark.increment();
+mark.increment();
+console.log(mark.get());//2
+mark.decrement();
+console.log(mark.get());//1
+```
+Closure-based counter with `increment`, `decrement`, and `get` methods.
+
+### 112_Api_closer.js
+```js
+function makeRetryTracker(max) {
+    let attempts = 0;
+    function tryAgain(testName) {
+        attempts++;
+        if (attempts > max) {
+            return `${testName} exceeded max retries (${max})`;
+        }
+        return `Attempt ${attempts}/${max} for ${testName}`;
+    }
+    return tryAgain;
+}
+
+let retry = makeRetryTracker(3);
+console.log(retry("Login"));
+console.log(retry("Login"));
+console.log(retry("Login"));
+console.log(retry("Login"));
+```
+Real-world closure — retry tracker that remembers attempt count across calls.
+
+### 113_higher_fun.js
+```js
+function runWithLoggin(testFn, testName) {
+    let result = testFn();
+    return result;
+}
+
+function loginTest() {
+    return "pass";
+}
+
+function loginTestFAILED() {
+    return "fail";
+}
+
+runWithLoggin(loginTest, "Login Test");
+runWithLoggin(loginTestFAILED, "Dashboard Failed Test");
+```
+Higher-order function — `runWithLoggin` takes a function as an argument and calls it.
+
+### 114_pure_fun.js
+```js
+// Pure function — same input always gives same output, no side effects
+function calculatePassRate(total, passed) {
+    return ((passed / total) * 100).toFixed(2);
+}
+
+console.log(calculatePassRate(10, 7));
+console.log(calculatePassRate(10, 7));
+
+// Impure function — depends on external state
+function isPassing(score) {
+    return score >= threshold;
+}
+
+let threshold = 70;
+console.log(isPassing(threshold));
+
+threshold = 50;
+console.log(isPassing(threshold));
+```
+Pure vs impure functions — pure functions have no side effects and are predictable; impure functions depend on external variables.
 ```
