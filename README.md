@@ -1697,3 +1697,65 @@ console.log(isPassing(threshold));
 ```
 Pure vs impure functions — pure functions have no side effects and are predictable; impure functions depend on external variables.
 ```
+
+## Chapter 13 — Strings (Chapter_13_030626)
+
+### 115_String.js
+```js
+let name = "Amit";
+console.log(name);
+let city = "Karad";
+console.log(city);
+console.log(typeof name);
+```
+String basics — creating strings with double quotes and single quotes.
+
+### 116_String_properties.js
+```js
+let name = "Amit Suryawanshi";
+console.log(name.length);
+console.log(name[0]);
+console.log(name.at(-1));
+```
+String properties: `.length`, bracket notation access, and `.at()` for negative indexing.
+
+### 117_String_searching.js
+```js
+let str = "JavaScript is awesome";
+console.log(str.indexOf("a"));          // 1
+console.log(str.lastIndexOf("a"));      // 3
+console.log(str.includes("Script"));    // true
+console.log(str.startsWith("Java"));    // true
+console.log(str.endsWith("some"));      // false
+```
+String search methods — `indexOf`, `lastIndexOf`, `includes`, `startsWith`, `endsWith`.
+
+### 118_substring.js
+```js
+let str = "JavaScript";
+console.log(str.substring(0, 4));  // Java
+console.log(str.slice(0, 4));      // Java
+console.log(str.slice(-6));        // Script
+```
+Extracting parts of a string — `substring()` and `slice()` (supports negative indices).
+
+### 119_transform.js
+```js
+let str = "  Hello World  ";
+console.log(str.trim());
+console.log(str.toUpperCase());
+console.log(str.toLowerCase());
+console.log(str.replace("World", "JS"));
+console.log("a,b,c".split(","));
+```
+String transformation — `trim()`, `toUpperCase()`, `toLowerCase()`, `replace()`, `split()`.
+
+### 120_SC.js
+```js
+let expected = "Welcome";
+let actual = "Welcome";
+let status = expected === actual ? "pass" : "fail";
+console.log(status); // pass
+```
+String comparison for test case validation using strict equality and ternary operator.
+```
