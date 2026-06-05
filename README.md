@@ -1,6 +1,30 @@
 # JavaScript Learning
 
-Learning JavaScript basics with Playwright.
+> A hands-on JavaScript learning repository with Playwright testing context — from basics to advanced concepts with real-world testing examples.
+
+![GitHub last commit](https://img.shields.io/badge/last%20commit-june%202026-blue)
+![GitHub repo size](https://img.shields.io/badge/repo%20size-13%20chapters-brightgreen)
+![JavaScript](https://img.shields.io/badge/javascript-ES6%2B-yellow)
+
+---
+
+## Table of Contents
+
+- [Chapter 01 — Hello World](#chapter-01)
+- [Chapter 02 — Process & Variables](#chapter-02)
+- [Chapter 03 — Identifier Rules & Comments](#chapter-03--identifier-rules--comments)
+- [Chapter 04 — Variables, Functions & Hoisting](#chapter-04--variables-functions--hoisting)
+- [Chapter 05 — Hoisting & Data Types](#chapter-05--hoisting--data-types)
+- [Chapter 06 — Operators](#chapter-06--operators)
+- [Chapter 07 — If/Else Conditional Logic](#chapter-07--ifelse-conditional-logic)
+- [Chapter 08 — Switch Statement](#chapter-08--switch-statement)
+- [Chapter 09 — User Input & Loops](#chapter-09--user-input-handling)
+- [Chapter 10 — Loops (For, While, Do-While)](#chapter-10--loops-for-while-do-while)
+- [Chapter 11 — Arrays](#chapter-11--arrays)
+- [Chapter 12 — Functions](#chapter-12--functions-chapter_12_270526)
+- [Chapter 13 — Strings](#chapter-13--strings-chapter_13_030626)
+
+---
 
 ## Chapter 01
 
@@ -1758,4 +1782,25 @@ let status = expected === actual ? "pass" : "fail";
 console.log(status); // pass
 ```
 String comparison for test case validation using strict equality and ternary operator.
+```
+
+---
+
+## Progress
+
+| Chapter | Topic | Status |
+|---------|-------|--------|
+| 01 | Hello World | ✅ |
+| 02 | Process & Variables | ✅ |
+| 03 | Identifier Rules & Comments | ✅ |
+| 04 | Variables, Functions & Hoisting | ✅ |
+| 05 | Hoisting & Data Types | ✅ |
+| 06 | Operators | ✅ |
+| 07 | If/Else Conditional Logic | ✅ |
+| 08 | Switch Statement | ✅ |
+| 09 | User Input Handling | ✅ |
+| 10 | Loops (For, While, Do-While) | ✅ |
+| 11 | Arrays | ✅ |
+| 12 | Functions | ✅ |
+| 13 | Strings | ✅ |
 ```
