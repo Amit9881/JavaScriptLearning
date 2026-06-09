@@ -3,7 +3,7 @@
 > A hands-on JavaScript learning repository with Playwright testing context — from basics to advanced concepts with real-world testing examples.
 
 ![GitHub last commit](https://img.shields.io/badge/last%20commit-june%202026-blue)
-![GitHub repo size](https://img.shields.io/badge/repo%20size-13%20chapters-brightgreen)
+![GitHub repo size](https://img.shields.io/badge/repo%20size-15%20chapters-brightgreen)
 ![JavaScript](https://img.shields.io/badge/javascript-ES6%2B-yellow)
 
 ---
@@ -23,6 +23,8 @@
 - [Chapter 11 — Arrays](#chapter-11--arrays)
 - [Chapter 12 — Functions](#chapter-12--functions-chapter_12_270526)
 - [Chapter 13 — Strings](#chapter-13--strings-chapter_13_030626)
+- [Chapter 14 — Objects](#chapter-14--objects-chapter_14_050626)
+- [Chapter 15 — 2D Arrays](#chapter-15--2d-arrays-chapter_15_080626)
 
 ---
 
@@ -1784,6 +1786,142 @@ console.log(status); // pass
 String comparison for test case validation using strict equality and ternary operator.
 ```
 
+## Chapter 14 — Objects (Chapter_14_050626)
+
+### 121_objects.js
+```js
+let user = {
+    name: "Amit",
+    age: 30,
+    isActive: true
+};
+console.log(user.name);
+```
+Object basics — creating objects with key-value pairs and accessing properties.
+
+### 122_obj2.js
+Object creation and property access with dot and bracket notation.
+
+### 123_object_creation.js
+```js
+let car = new Object();
+car.brand = "Toyota";
+car.model = "Camry";
+```
+Object creation using the `new Object()` constructor pattern.
+
+### 124_obj_real.js
+Real-world object example — modeling a test case with properties like name, status, and duration.
+
+### 125_premitive_ref.js
+```js
+// Primitives are copied by value
+let a = 10;
+let b = a;
+b = 20;
+console.log(a); // 10
+
+// Objects are copied by reference
+let obj1 = { value: 10 };
+let obj2 = obj1;
+obj2.value = 20;
+console.log(obj1.value); // 20
+```
+Primitive vs reference types — how values and references behave differently.
+
+### 126_obj_exp.js
+Using expressions and computed property names in objects.
+
+### 127_IQ.js
+Interview question — object mutation, copying, and reference behavior.
+
+### 128_object_fun.js
+```js
+let calculator = {
+    add(a, b) { return a + b; },
+    subtract(a, b) { return a - b; }
+};
+```
+Objects with methods — functions as object property values.
+
+### 129_obj_decunstruction.js
+```js
+let person = { name: "Amit", age: 30 };
+let { name, age } = person;
+console.log(name); // Amit
+console.log(age);  // 30
+```
+Object destructuring — unpacking object properties into variables.
+
+### 130_speed.js
+Object property access performance and shorthand property names.
+
+### 131_onj_set_get_method.js
+```js
+let user = {
+    firstName: "Amit",
+    lastName: "Suryawanshi",
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+    set fullName(name) {
+        [this.firstName, this.lastName] = name.split(" ");
+    }
+};
+```
+Getters and setters — computed properties with `get` and `set`.
+
+### 132_IQ.js
+Interview question — getter/setter behavior and property descriptors.
+
+### 133_obj_real.js
+Real-world object example — test configuration object with environment settings.
+
+### 134_let_const_obj.js
+```js
+const obj = { name: "Amit" };
+obj.name = "Surya"; // Allowed — const prevents reassignment, not mutation
+// obj = {}; // TypeError
+```
+`const` with objects — mutation is allowed but reassignment is not.
+
+## Chapter 15 — 2D Arrays (Chapter_15_080626)
+
+### 135_2d_array.js
+```js
+let matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+console.log(matrix[0][1]); // 2
+```
+2D array basics — creating and accessing nested arrays.
+
+### 136_2d.js
+```js
+let grid = Array.from({ length: 3 }, () => Array(3).fill(0));
+```
+Creating 2D arrays dynamically using `Array.from()`.
+
+### 137_real.js
+Real-world 2D array example — test data matrix with rows and columns.
+
+### 138_2d_fn.js
+```js
+function printMatrix(matrix) {
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            console.log(matrix[i][j]);
+        }
+    }
+}
+```
+Iterating over 2D arrays using nested for loops.
+
+### 139_IQ.js
+Interview question — 2D array traversal, diagonal sum, and transformation.
+
 ---
 
 ## Progress
@@ -1803,4 +1941,6 @@ String comparison for test case validation using strict equality and ternary ope
 | 11 | Arrays | ✅ |
 | 12 | Functions | ✅ |
 | 13 | Strings | ✅ |
+| 14 | Objects | ✅ |
+| 15 | 2D Arrays | ✅ |
 ```
