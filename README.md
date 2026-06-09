@@ -1790,137 +1790,369 @@ String comparison for test case validation using strict equality and ternary ope
 
 ### 121_objects.js
 ```js
-let user = {
-    name: "Amit",
+let obj1 = {};
+let obj2 = {
+    name: "amit",
     age: 30,
-    isActive: true
+    gender: "Male"
 };
-console.log(user.name);
+console.log(obj1);
+console.log(obj2);
 ```
-Object basics — creating objects with key-value pairs and accessing properties.
+Object basics — creating empty objects and objects with key-value pairs.
 
 ### 122_obj2.js
-Object creation and property access with dot and bracket notation.
+```js
+let s1 = { name: "amit", rollnu: 29 };
+let s2 = { name: "surya", rollnu: 30 };
+let JSON_student4 = { "name": "Pramod", "age": 87, "phone": 987654320 };
+
+let a = { status: "pass" };
+console.log(a.status);   // pass (dot notation)
+console.log(a["status"]);// pass (bracket notation)
+
+let b = a;
+b.status = "fail";
+console.log(a.status);   // fail (reference copy)
+
+let c = { status: "pass" };
+let d = { status: "pass" };
+console.log(c === d);    // false (different references)
+```
+Dot vs bracket notation, reference copy behavior, and object comparison (references, not values).
 
 ### 123_object_creation.js
 ```js
-let car = new Object();
-car.brand = "Toyota";
-car.model = "Camry";
+let a = { num: 33 };
+let b = { num: 33 };
+
+if (a === b) {
+    console.log("a is equal to b");
+} else {
+    console.log("a is not equal to b");
+}; // a is not equal to b
 ```
-Object creation using the `new Object()` constructor pattern.
+Object comparison — two objects with same properties are not equal (compared by reference).
 
 ### 124_obj_real.js
-Real-world object example — modeling a test case with properties like name, status, and duration.
+```js
+let cfg = {};
+cfg.browser = "chrome";
+cfg.timeout = 3000;
+cfg.testName = "loginTest";
+console.log(cfg);
+// { browser: 'chrome', timeout: 3000, testName: 'loginTest' }
+
+if (cfg.browser === "chrome") {
+    console.log(`execute ${cfg.testname}`); // undefined (typo: testname vs testName)
+}
+```
+Real-world config object — adding properties dynamically and common pitfalls (typo in property access).
 
 ### 125_premitive_ref.js
 ```js
-// Primitives are copied by value
+// Primitive — copied by value
 let a = 10;
 let b = a;
-b = 20;
+b = 90;
 console.log(a); // 10
 
-// Objects are copied by reference
-let obj1 = { value: 10 };
+// Object — copied by reference
+let obj1 = { name: "Amit" };
 let obj2 = obj1;
-obj2.value = 20;
-console.log(obj1.value); // 20
+obj2.name = "surya";
+console.log(obj1.name); // surya
 ```
-Primitive vs reference types — how values and references behave differently.
+Primitive vs reference types — primitives copy by value, objects copy by reference.
 
 ### 126_obj_exp.js
-Using expressions and computed property names in objects.
+```js
+let r_json = {
+    "name": "amit",
+    "age": "30"
+};
+
+let r_js = {
+    name: "Amit",
+    age: 30
+};
+console.log(r_json);
+console.log(r_js);
+```
+JSON format (quoted keys) vs JS object format (unquoted keys) — both work but JSON is stricter.
 
 ### 127_IQ.js
-Interview question — object mutation, copying, and reference behavior.
+```js
+const user = {
+    name: "Amit",
+    age: 30,
+    home: "karad"
+};
+
+console.log(user["home"]); // karad (bracket notation)
+user.home = "satara";      // modify property
+user.age = 29;
+
+const key = "age";
+console.log(user[key]);    // 29 (dynamic key access)
+
+console.log(Object.getOwnPropertyDescriptor(obj, "name"));
+// { value: 'SURYA', writable: true, enumerable: true, configurable: true }
+```
+Property access, dynamic keys, property modification, and `Object.getOwnPropertyDescriptor()`.
 
 ### 128_object_fun.js
 ```js
-let calculator = {
-    add(a, b) { return a + b; },
-    subtract(a, b) { return a - b; }
+let obj = {
+    value: 0,
+    add(a, b) {
+        console.log(a + b);
+    },
+    sub(a, b) {
+        console.log(a - b);
+    }
 };
+obj.add(20, 10); // 30
+obj.sub(14, 7);  // 7
 ```
-Objects with methods — functions as object property values.
+Objects with methods — shorthand method syntax inside objects (ES6).
 
 ### 129_obj_decunstruction.js
 ```js
-let person = { name: "Amit", age: 30 };
-let { name, age } = person;
-console.log(name); // Amit
-console.log(age);  // 30
+const obj1 = { name: "amit", age: 29, city: "Karad" };
+
+// Basic destructuring
+const { name, age } = obj1;
+
+// Rename variables
+const { name: userName, age: userAge } = obj1;
+
+// Default values
+const { city = "satara" } = obj1; // keeps "Karad" (existing value)
+
+// Nested destructuring
+const data = {
+    user: {
+        name: "Amit",
+        address: { city: "karad" }
+    }
+};
+const { user: { address: { city } } } = data;
+console.log(data.user.address.city); // karad
 ```
-Object destructuring — unpacking object properties into variables.
+Object destructuring — basic, renaming, default values, and nested destructuring.
 
 ### 130_speed.js
-Object property access performance and shorthand property names.
+```js
+// Spread operator to copy
+let obj1 = { a: 1, b: 2 };
+const add = { ...obj1 };
+console.log(add); // { a: 1, b: 2 }
+
+// let — can reassign
+let cfg = { name: "amit", age: 28 };
+cfg.name = "surya";
+cfg.city = "karad";    // add new property
+cfg = { name: "baby" };// reassign entire object (allowed with let)
+
+// const — cannot reassign, but can mutate
+const cfg1 = { name: "amit", age: 28 };
+cfg1.name = "surya";
+cfg1.age = 30;
+cfg1.city = "karad";
+// cfg1 = { name: "baby" }; // TypeError: Assignment to constant variable.
+```
+Spread operator (`...`) to copy objects, `let` vs `const` with object mutation and reassignment.
 
 ### 131_onj_set_get_method.js
 ```js
-let user = {
-    firstName: "Amit",
-    lastName: "Suryawanshi",
-    get fullName() {
-        return `${this.firstName} ${this.lastName}`;
+const user = {
+    firstname: "AMit",
+    lastname: "surya",
+    get FullName() {
+        return this.firstname + this.lastname;
     },
-    set fullName(name) {
-        [this.firstName, this.lastName] = name.split(" ");
+    set FullName(value) {
+        [this.firstname, this.lastname] = value;
     }
 };
+
+console.log(user.FullName); // AMitsurya
+user.FullName = "John Cena";
+console.log(user.FullName); // JohnCena
 ```
-Getters and setters — computed properties with `get` and `set`.
+Getters and setters — `get` and `set` keywords with `this` for computed property access.
 
 ### 132_IQ.js
-Interview question — getter/setter behavior and property descriptors.
+```js
+const obj = { a: 1, b: 2, c: 3 };
+console.log(Object.keys(obj));   // [ 'a', 'b', 'c' ]
+console.log(Object.values(obj)); // [ 1, 2, 3 ]
+console.log(Object.entries(obj));// [ [ 'a', 1 ], [ 'b', 2 ], [ 'c', 3 ] ]
+
+const user = { name: "amit", age: 30 };
+for (const key in user) {
+    console.log(`${key} : ${user[key]}`);
+}
+// name : amit
+// age : 30
+```
+Object iteration — `Object.keys()`, `Object.values()`, `Object.entries()`, and `for...in` loop.
 
 ### 133_obj_real.js
-Real-world object example — test configuration object with environment settings.
+```js
+const ENV = {
+    BASE_URL: "https://staging.myapp.com",
+    TIMEOUT: 5000,
+    RETRIES: 2,
+    BROWSER: "Chrome"
+};
+
+const EXPECTED_RESPONSE = {
+    status: 200,
+    body: { user: { role: "admin", active: true } }
+};
+
+const config = {
+    baseUrl: 'http://localhost:3000',
+    apiBaseUrl: 'http://localhost:3000/api',
+    testUser: {
+        username: 'testuser@example.com',
+        password: 'SecurePass123',
+    },
+    logLevel: 'INFO',
+    retryCount: parseInt(process.env.RETRY_COUNT || '3', 10),
+};
+```
+Real-world objects — environment config, expected API response structure, and nested config object.
 
 ### 134_let_const_obj.js
 ```js
-const obj = { name: "Amit" };
-obj.name = "Surya"; // Allowed — const prevents reassignment, not mutation
-// obj = {}; // TypeError
+// let — can mutate AND reassign
+let config1 = { browser: "Chrome", timeout: 3000 };
+config1.browser = "Firefox"; // mutate
+config1 = { browser: "Safari" }; // reassign — allowed
+
+// const — can mutate but CANNOT reassign
+const config = { browser: "Chrome", timeout: 3000 };
+config.browser = "Firefox"; // mutate — allowed
+config.retries = 2;         // add property — allowed
+// config = { browser: "Safari" }; // TypeError: Assignment to constant variable.
 ```
-`const` with objects — mutation is allowed but reassignment is not.
+`let` vs `const` with objects — both allow mutation, but `const` prevents reassignment.
 
 ## Chapter 15 — 2D Arrays (Chapter_15_080626)
 
 ### 135_2d_array.js
 ```js
-let matrix = [
+let a = [1, 2, 3];
+let b = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
 ];
-console.log(matrix[0][1]); // 2
-```
-2D array basics — creating and accessing nested arrays.
-
-### 136_2d.js
-```js
-let grid = Array.from({ length: 3 }, () => Array(3).fill(0));
-```
-Creating 2D arrays dynamically using `Array.from()`.
-
-### 137_real.js
-Real-world 2D array example — test data matrix with rows and columns.
-
-### 138_2d_fn.js
-```js
-function printMatrix(matrix) {
-    for (let i = 0; i < matrix.length; i++) {
-        for (let j = 0; j < matrix[i].length; j++) {
-            console.log(matrix[i][j]);
-        }
+for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+        console.log(b[i][j]);
     }
 }
 ```
-Iterating over 2D arrays using nested for loops.
+2D array basics — creating nested arrays and iterating with nested `for` loops.
+
+### 136_2d.js
+```js
+let arr = [[1, 2, 3, 4]]; // 1 row, 4 columns
+
+let arr2 = [
+    [10, 20, 30],
+    [40, 50, 60],
+    [70, 80, 90]
+];
+console.log(arr2[0][0]); // 10
+console.log(arr2[2][2]); // 90
+console.log(arr2.length);    // 3 (rows)
+console.log(arr2[0].length); // 3 (columns)
+```
+2D arrays — grid structure, element access by row/column index, and `.length` property for dimensions.
+
+### 137_real.js
+```js
+let testMatrix = [
+    ["login", "pass", 200],
+    ["checkout", "fail", 404],
+    ["search", "pass", 180]
+];
+
+// Nested for loop
+for (let i = 0; i < testMatrix.length; i++) {
+    for (let j = 0; j < testMatrix[i].length; j++) {
+        console.log(testMatrix[i][j]);
+    }
+}
+
+// for-of loop
+for (let row of testMatrix) {
+    for (let cell of row) {
+        process.stdout.write(cell + " ");
+    }
+}
+
+// forEach
+testMatrix.forEach(row => {
+    row.forEach(cell => process.stdout.write(cell + " "));
+});
+```
+Real-world 2D array — test result matrix (test name, status, code) iterated with for loops, for-of, and forEach.
+
+### 138_2d_fn.js
+```js
+let scores = [
+    [85, 90, 78], // student 0
+    [60, 45, 70], // student 1
+    [95, 88, 92]  // student 2
+];
+
+// Total per row using map + reduce
+let rowSums = scores.map(row => row.reduce((a, b) => a + b, 0));
+console.log(rowSums); // [253, 175, 275]
+
+// Finding failed test cases
+let suiteResults = [
+    ["login-pass", "register-pass", "logout-pass"],
+    ["search-pass", "filter-fail", "sort-pass"],
+    ["checkout-fail", "payment-fail", "confirm-pass"]
+];
+for (let i = 0; i < suiteResults.length; i++) {
+    for (let j = 0; j < suiteResults[i].length; j++) {
+        if (suiteResults[i][j].includes("fail")) {
+            console.log(suiteResults[i][j]);
+        }
+    }
+}
+
+let array_2d = [[1, 2, 3], [4, 5], [6]]; // jagged array
+```
+2D array operations — `map` + `reduce` for row sums, searching for failed test cases with `includes()`, and jagged arrays.
 
 ### 139_IQ.js
-Interview question — 2D array traversal, diagonal sum, and transformation.
+```js
+// Star pattern pyramid
+let n = 5;
+for (let i = 1; i <= n; i++) {
+    let row = " ";
+    for (let j = 1; j <= i; j++) {
+        row += "*";
+    }
+    console.log(row.trim());
+}
+// Output:
+// *
+// * *
+// * * *
+// * * * *
+// * * * * *
+```
+Interview question — nested loop star pattern: rows increase with outer loop, stars per row increase with inner loop.
 
 ---
 
