@@ -17,6 +17,6 @@ console.log(url.indexOf("x"));//-1 not present so -1
 console.log(url.search(/9881/));//23
 console.log(url.search(/git/));//8
 
-// /regex/ - Regular EXPRESSION - These are nothing but A-patterns that you can find within
-//  the strings automatically. 
+// /regex/ - Regular EXPRESSION - These are nothing but
+//A-patterns that you can find within the strings automatically. 
 

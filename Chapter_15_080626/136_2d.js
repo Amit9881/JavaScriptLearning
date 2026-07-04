@@ -15,5 +15,5 @@ console.log(arr2[2][2]);//90
 //console.log(arr2[3][3]);
 //TypeError: Cannot read properties of undefined (reading '3')
 
-console.log(arr2.length);
-console.log(arr2[0].length);
+console.log(arr2.length);//3 always rows
+console.log(arr2[0].length);//3

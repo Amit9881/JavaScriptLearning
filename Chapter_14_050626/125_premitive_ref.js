@@ -11,5 +11,5 @@ console.log(a);//10
 let obj1 = { name: "Amit" };
 let obj2 = obj1;
 obj2.name = "surya";
-console.log(obj2);
-console.log(obj1);
+console.log(obj2);//{ name: 'surya' }
+console.log(obj1);//{ name: 'surya' }

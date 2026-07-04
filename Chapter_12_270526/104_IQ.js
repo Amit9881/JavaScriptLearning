@@ -3,4 +3,4 @@ function run(name, status, time) {
 };
 
 let r = run("TC", "pass", 1000);
-console.log(r);
+console.log(r);//TC,pass,1000

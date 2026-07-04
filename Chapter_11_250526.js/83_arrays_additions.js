@@ -1,4 +1,3 @@
-//push/pop (end) and unshift/shift (beginning) operations
 let names = ["amit", "surya"];
 console.log(names);
 //[ 'amit', 'surya' ]
@@ -21,5 +20,8 @@ names.unshift("man");
 console.log(names);
 //[ 'man', 'amit', 'surya', 5, 6 ]
 
+
+//Remove from BEGINNING
 names.shift();
 console.log(names);
+//[ 'amit', 'surya', 5, 6 ]

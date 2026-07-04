@@ -23,8 +23,8 @@ console.log("***************");
 let c = { status: "pass" };
 let d = { status: "pass" };
 
-console.log(c.status);
-console.log(d.status);
+console.log(c.status);//pass
+console.log(d.status);//pass
 
-console.log(c === d);
-console.log(c == d);
+console.log(c === d);//false
+console.log(c == d);//false

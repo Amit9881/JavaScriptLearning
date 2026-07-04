@@ -4,7 +4,7 @@ user = Number(num);
 
 console.log(user);*/
 
-
+//below code got ReferenceError: prompt is not defined
 let num = prompt("Enter a number:");
 num = Number(num);  // convert string to number
 

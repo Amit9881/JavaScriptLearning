@@ -6,7 +6,7 @@ console.log(age);
 
 
 function say() {
-    console.log(name);
+    console.log(name);////undefined
     var name = "Amit";
     console.log(name);
 }

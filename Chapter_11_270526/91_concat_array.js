@@ -9,4 +9,4 @@ console.log(arr2.concat(arr));//[ 3, 5, 8, 1, 2, 4 ]
 let d = [...arr, ...arr2];
 console.log(d);//[ 1, 2, 4, 3, 5, 8 ]
 
-console.log(arr.join("@"));
+console.log(arr.join("@"));//1@2@4

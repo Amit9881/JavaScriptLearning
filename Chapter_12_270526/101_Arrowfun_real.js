@@ -24,4 +24,4 @@ const api1 = (status) => {
         console.log("API IS FINE");
     };
 };
-api1(250);
+api1(250);//API IS FINE

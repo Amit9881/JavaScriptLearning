@@ -20,4 +20,4 @@ console.log(s);//age is 27
 const name1 = function (name2) {
     return `Hi ${name2}`;
 };
-console.log(name1("surya"));
+console.log(name1("surya"));//Hi surya

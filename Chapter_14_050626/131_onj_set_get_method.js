@@ -16,3 +16,12 @@ const user = {
 console.log(user.FullName);//AMitsurya
 user.FullName = "John Cena";
 console.log(FullName);
+
+
+// class User{
+//     firstname
+//     lastName,
+//     fullName(){
+
+//     }
+// }

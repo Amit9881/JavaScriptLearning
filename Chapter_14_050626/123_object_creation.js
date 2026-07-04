@@ -6,4 +6,4 @@ if (a === b) {
 
 } else {
     console.log("a is not equal to b");
-};
+};//a is not equal to b

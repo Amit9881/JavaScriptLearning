@@ -29,5 +29,6 @@ console.log(data);//{ user: { name: 'Amit', address: { city: 'karad' } } }
 //console.log(data.user.address.city);
 const { user: { address: { city } } } = data;
 console.log(data.user.address.city);
+//SyntaxError: Identifier 'city' has already been declared
 
 
