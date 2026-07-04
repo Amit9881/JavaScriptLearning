@@ -25,6 +25,12 @@
 - [Chapter 13 — Strings](#chapter-13--strings-chapter_13_030626)
 - [Chapter 14 — Objects](#chapter-14--objects-chapter_14_050626)
 - [Chapter 15 — 2D Arrays](#chapter-15--2d-arrays-chapter_15_080626)
+- [Chapter 16 — Callbacks](#chapter-16--callbacks)
+- [Chapter 17 — Promises](#chapter-17--promises)
+- [Chapter 18 — Async/Await](#chapter-18--asyncawait)
+- [Chapter 19 — Playwright Basics](#chapter-19--playwright-basics)
+- [Chapter 20 — Export/Import](#chapter-20--exportimport)
+- [Chapter 21 — Classes & Objects](#chapter-21--classes--objects)
 
 ---
 
@@ -2154,6 +2160,309 @@ for (let i = 1; i <= n; i++) {
 ```
 Interview question — nested loop star pattern: rows increase with outer loop, stars per row increase with inner loop.
 
+## Chapter 16 — Callbacks
+
+### 140_callbacks.js
+```js
+function task(name, callback) {
+    console.log(name);
+    callback();
+}
+task("open browser", () => console.log("browser opened"));
+```
+Basic callback pattern — passing a named or anonymous function as a callback to a higher-order function.
+
+### 141_cb.js
+Attempts to use Playwright's `test()` without proper import — deliberately causes a `ReferenceError` to illustrate callback context.
+
+### 142_cb_fun.js
+```js
+function table(item, callback) {
+    callback(item);
+}
+```
+Simple synchronous callback — a function receives a value and a callback, then invokes the callback with the value.
+
+### 143_pw.js
+Simulates Playwright-like test case execution by wrapping a test name and callback into a `TC()` function.
+
+### 144_js_cb.js / 146_async_cb.js
+```js
+console.log("test 1");
+setTimeout(() => console.log("test 2"), 0);
+console.log("test 3");
+```
+Asynchronous callbacks with `setTimeout()` — "test 2" logs last despite a 0ms delay (non-blocking behavior).
+
+### 145_sync_cb.js
+```js
+["pass", "fail", "skip"].forEach(result => console.log(result));
+```
+Synchronous callback using `Array.forEach()` with an anonymous function.
+
+### 147_CB_Hell.js
+Callback hell with a realistic QA scenario — open browser → go to login page → enter credentials → click login — using nested async callbacks (pyramid of doom).
+
+### 148_cb_hell_20steps.js
+Deep "Pyramid of Doom" with 24 nested async callbacks simulating a full e2e checkout journey (open browser through logout).
+
+### 149_CB_parameter.js
+Callbacks with parameters — greets a tester and invokes a callback, shown with both traditional and arrow function syntax.
+
+### 150_CB_run.js
+Callback used for calculation (addition), then demonstrates sequential chaining of browser automation steps via callbacks.
+
+## Chapter 17 — Promises
+
+### 151_promise.js
+```js
+let p = new Promise((resolve, reject) => {
+    let foodIsReady = true;
+    if (foodIsReady) resolve("Food is ready");
+    else reject("Food is not ready");
+});
+```
+Basic Promise creation — resolves or rejects based on a boolean condition.
+
+### 152_promise_real_api.js
+```js
+let api = new Promise((resolve, reject) => {
+    resolve({ status: 200, user: "Amit" });
+});
+api.then(res => console.log(res.status));
+```
+Promise resolving with an API-like response object and accessing properties via `.then()`.
+
+### 153_promise_api_part2.js
+Promise rejection handling — rejects with `"500 Error"` and catches the error in a `.catch()` block.
+
+### 154_finally.js
+```js
+promise.finally(() => console.log("cleanup"));
+```
+The `.finally()` method — always executes after `.then()` or `.catch()`, regardless of resolve or reject.
+
+### 155_call_py_prb.js
+Refactors the callback-hell login flow into Promise-based functions (`openBrowser`, `goToLogin`, etc.) to avoid nesting.
+
+### 156_Real_Api_Promise.js
+Simple Promise rejection example — creates a rejected promise and catches the error.
+
+### 157_Promise_All.js
+```js
+Promise.all([auth, db, cache]).then(console.log);
+Promise.allSettled([auth, db, cache]).then(console.log);
+```
+`Promise.all()` and `Promise.allSettled()` for running multiple async checks (auth, DB, cache) concurrently.
+
+### 158_Promise_IQ.js
+Interview-style questions covering Promise resolve/reject, chaining `.then().catch()`, and the difference between `throw` and `reject`.
+
+## Chapter 18 — Async/Await
+
+### 159_Aysnc.js
+```js
+async function run() {
+    try {
+        await Promise.reject("error");
+    } catch (e) {
+        console.log(e);
+    } finally {
+        console.log("always printed");
+    }
+}
+```
+Async function with `try/catch/finally` — awaits a rejected promise, logs error, finally block runs regardless.
+
+### 160_async_part2.js
+Shows how to `await` a Promise-returning function, both at the top level and inside an async function, to retrieve a token.
+
+### 161_PyODom.js
+Converts the callback-hell login flow into Promise-based functions (`openBrowser`, `goToLogin`, etc.) returning Promises.
+
+### 162_Async_ex.js
+Basic async/await syntax with a `run()` function and a Playwright `test()` with `async ({ page })`.
+
+### 163_A_A.js
+Sequential async/await execution — Step 2 depends on Step 1's result (`apiCall("Login")` then `apiCall("Logout")`).
+
+### 164_A_A_parallel.js
+Parallel async execution using `Promise.allSettled()` to run `apiCall("Auth")`, `apiCall("Login")`, `apiCall("logout")` concurrently.
+
+### 165_IQ.js
+Interview-style async/await examples showing how `async` functions return Promises, and how to await and log resolved values.
+
+### 166_ACLogin.js
+```js
+test("Login as standard_user", async ({ page }) => {
+    await page.fill("#user-name", "standard_user");
+    await page.fill("#password", "secret_sauce");
+    await page.click("#login-button");
+});
+```
+Playwright test that logs in as `standard_user` on SauceDemo using `test.step()`.
+
+## Chapter 19 — Playwright Basics
+
+### package.json
+```json
+{
+    "name": "playwrightbasics",
+    "version": "1.0.0",
+    "dependencies": {
+        "playwright": "^1.52.0"
+    }
+}
+```
+Playwright project setup with `playwright` dependency. Install via `npm install`, then run `npx playwright install` to download browsers.
+
+## Chapter 20 — Export/Import
+
+### utilis.js
+```js
+export const BASE_URL = "https://api.staging.com";
+export function formatTestName(name) {
+    return `TC_${name.toUpperCase()}`;
+}
+```
+Named exports — `BASE_URL` constant and `formatTestName()` function.
+
+### testutilis.js
+```js
+export const BASE_URL = "https://app.vwo.com";
+export function formatUpperCaseString(str) {
+    return str.toUpperCase();
+}
+```
+Named exports — alternative `BASE_URL` and string formatter.
+
+### logger.js
+```js
+export default function log(msg) {
+    console.log(`[LOG] - default ${msg}`);
+}
+export function log2(msg) {
+    console.log(`[LOG2] ${msg}`);
+}
+```
+Default export (`log`) and named export (`log2`).
+
+### 168_import_export.js
+```js
+import { BASE_URL, formatTestName } from "./utilis.js";
+console.log(BASE_URL);
+console.log(formatTestName("login test"));
+```
+Importing named exports from `utilis.js`.
+
+### 169_Utilis.js
+Imports and renames exports from both `../utils.js` and `../testutils.js` using aliases.
+
+### 170_logger.js
+```js
+import log from "../logger.js";
+log("Test started");
+```
+Importing a default export from `logger.js`.
+
+## Chapter 21 — Classes & Objects
+
+### 171_class_object.js
+```js
+class Person {
+    constructor(name, email, salary, address) {
+        this.name = name;
+        this.email = email;
+        this.salary = salary;
+        this.address = address;
+    }
+    sleep() { }
+    eat() { }
+    walk() { }
+}
+```
+Basic class definition with properties (`name`, `email`, `salary`, `address`) and empty behavior methods.
+
+### 172_class_obj2.js
+Extends the `Person` class with a constructor that logs when an object is created — demonstrates instantiation with `new Person()`.
+
+### 173_cars.js
+```js
+class Car {
+    constructor(name) {
+        this.name = name;
+    }
+    drive() {
+        console.log(`I am driving ${this.name}`);
+    }
+}
+```
+Car class with constructor parameter and a `drive()` method.
+
+### 174_real_browser.js
+```js
+class TestCase {
+    constructor(name, status, priority) {
+        this.name = name;
+        this.status = status;
+        this.priority = priority;
+    }
+    display() {
+        console.log(`${this.name} - ${this.status}`);
+    }
+}
+```
+Test case modeling class with `name`, `status`, `priority` properties and a `display()` method.
+
+### 175_IQ.js
+```js
+class Browser {
+    constructor(name) {
+        this.name = name;
+        console.log(`${name} launched`);
+    }
+    start() { console.log("starting"); }
+    close() { console.log("closing"); }
+}
+```
+Browser class — constructor logs the browser name upon launch, with `start()` and `close()` methods.
+
+### 176_Private_public.js
+```js
+class Credentials {
+    #apiKey;
+    constructor(user, apiKey) {
+        this.user = user;
+        this.#apiKey = apiKey;
+    }
+    getAuthHeaders() {
+        return { Authorization: `Bearer ${this.#apiKey}` };
+    }
+}
+```
+Private fields (`#apiKey`) vs public fields (`user`) with a getter method for auth headers.
+
+### 177_static.js
+```js
+class Config {
+    static name = "Playwright";
+    static tutor = "Amit";
+}
+console.log(Config.name);
+```
+Static class properties — belong to the class itself, not instances.
+
+### 178_static.js
+```js
+class Person {
+    static nationality = "Indian";
+    static common_fn() {
+        console.log("shared method");
+    }
+}
+```
+Static property and static method — shared across all instances, accessed via `ClassName.member`.
+
 ---
 
 ## Progress
@@ -2175,4 +2484,10 @@ Interview question — nested loop star pattern: rows increase with outer loop, 
 | 13 | Strings | ✅ |
 | 14 | Objects | ✅ |
 | 15 | 2D Arrays | ✅ |
+| 16 | Callbacks | ✅ |
+| 17 | Promises | ✅ |
+| 18 | Async/Await | ✅ |
+| 19 | Playwright Basics | ✅ |
+| 20 | Export/Import | ✅ |
+| 21 | Classes & Objects | ✅ |
 ```
